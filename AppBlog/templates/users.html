@@ -1,0 +1,17 @@
+{% extends "header.html" %} {% load static %}
+{% block content %}
+<h1>USERS</h1>
+<a class="btn btn-primary" href="/addUser" role="button">Add User</a>
+{% endblock %}
+
+<h1>Listado Usuarios</h1>
+
+    {% if formulario.errors %}
+     <p style="color:red">HAY ALGO MAL EN EL FORMULARIO</p>
+    {% endif %}
+
+    <form action="{% url 'deporteFormulario' %}" method="POST"> {% csrf_token %}
+
+        <table>
+            {{ formulario.as_table }}
+        </table>
